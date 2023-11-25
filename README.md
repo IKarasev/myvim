@@ -54,6 +54,16 @@ vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 ### Telescope
 
+#### Local
+
+```
+mappings = {
+    ["<C-s>"] = actions.select_vertical
+}
+```
+
+#### Global
+
 ```
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc='Search files' })
 vim.keymap.set('n', '<C-p>', builtin.git_files, { desc='Search in git' })
@@ -66,6 +76,14 @@ end, { desc='Promt to search string in files' })
 ```
 
 ### NvimTree
+
+#### Local
+
+```
+vim.keymap.set("n", "<C-s>", api.node.open.vertical, opts("Open: Vertical Split"))
+```
+
+#### Global
 
 ```
 vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
