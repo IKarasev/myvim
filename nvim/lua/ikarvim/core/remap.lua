@@ -37,3 +37,7 @@ vim.keymap.set("v", "<leader>cn", ":norm x")
 -- Open terminal in vsplit block
 vim.keymap.set("n", "<leader>tev", ":belowright vsplit term://bash<CR>")
 vim.keymap.set("n", "<leader>teh", ":belowright split term://bash<CR>")
+
+-- Add empty lines before and after current line in normal mode
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")

@@ -46,6 +46,10 @@ vim.keymap.set("v", "<leader>cn", ":norm x")
 -- Open terminal in vsplit block
 vim.keymap.set("n", "<leader>tev", ":belowright term://bash<CR>")
 vim.keymap.set("n", "<leader>teh", ":belowright split term://bash<CR>")
+
+-- New lines in normal mode
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
 ```
 
 ### Telescope
@@ -113,6 +117,9 @@ vim.keymap.set("n", "<leader>gsp", "<cmd>:Git! push<CR>")
 
 [lazy.nvim](https://github.com/folke/lazy.nvim)
 
+- link: [https://github.com/folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- config: [./nvim/lua/ikarvim/lazy.lua](./nvim/lua/ikarvim/lazy.lua)
+
 ## Installed plugins
 
 ### Beauty
@@ -131,15 +138,203 @@ vim.keymap.set("n", "<leader>gsp", "<cmd>:Git! push<CR>")
 - link: [https://github.com/nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) 
 - config: [./nvim/lua/ikarvim/plugins/treesitter.lua](./nvim/lua/ikarvim/plugins/treesitter.lua)
 
-#### Fancy icons
+#### webdevicons.lua
+
+Fancy icons
 
 - link: [https://github.com/nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - custom font: [HackNerdFont](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
 - config: [./nvim/lua/ikarvim/plugins/webdevicons.lua](./nvim/lua/ikarvim/plugins/webdevicons.lua)
 
-#### Status line
+#### lualine.nvim
 
-lualine.nvim
+Status line
 
 - link: [https://github.com/nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - config: [./nvim/lua/ikarvim/plugins/lualine.lua](./nvim/lua/ikarvim/plugins/lualine.lua)
+
+## Editor
+
+### nvim-tree.lua 
+
+File explorer
+
+- link: [https://github.com/nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) 
+- config: [./nvim/lua/ikarvim/plugins/nvimtree.lua](./nvim/lua/ikarvim/plugins/nvimtree.lua)
+
+Keymaps
+
+```
+vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
+vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
+vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+```
+
+### undotree
+
+Powerfull history visualiser
+
+- link: [https://github.com/mbbill/undotree](https://github.com/mbbill/undotree)
+- config: [./nvim/lua/ikarvim/plugins/undotree.lua](./nvim/lua/ikarvim/plugins/undotree.lua)
+
+Keymaps:
+
+```
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+```
+
+### nvim-surround
+
+Surround text with () [] etc.
+
+- link: [https://github.com/kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- config: [./nvim/lua/ikarvim/plugins/init.lua](./nvim/lua/ikarvim/plugins/init.lua)
+
+Default actions:
+- add: `ys{motion}{char}`
+- remove: `ds{char}`
+- cahnge: `cs{target}{replacement}`
+
+Help: `:h nvim-surround.usage`
+
+### dressing.nvim
+
+Visual replacement for input-select vim.ui actions
+
+- link: [https://github.com/stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- config: [./nvim/lua/ikarvim/plugins/dressing.lua](./nvim/lua/ikarvim/plugins/dressing.lua)
+
+## Git
+
+### vim-fugitive
+
+Nvim git wrapper
+
+- link: [https://github.com/tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- config: [./nvim/lua/ikarvim/plugins/fugitive.lua](./nvim/lua/ikarvim/plugins/fugitive.lua)
+
+Keymaps
+
+```
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gsp", "<cmd>:Git! push<CR>")
+```
+
+### gitsigns.nvim
+
+Editor git decoration
+
+- link: [https://github.com/lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- config: [./nvim/lua/ikarvim/plugins/gitsigns.lua](./nvim/lua/ikarvim/plugins/gitsigns.lua)
+
+## Code related
+
+### lsp-zero
+
+Help plugin to configure LSP
+
+- link: [https://github.com/VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
+- installation: [./nvim/lua/ikarvim/plugins/lsp/lspzero.lua](./nvim/lua/ikarvim/plugins/lsp/lspzero.lua)
+
+### mason and mason-lspconfig
+![alt text](https://user-images.githubusercontent.com/6705160/177613416-0c0354d2-f431-40d8-87f0-21310f0bba0e.png) 
+
+Mason - Packet manage for lsp, linter, formatter, dap 
+mason-lspconfig - install and setup helper for nvim-lsp
+
+- links:
+    - [https://github.com/williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+    - [https://github.com/williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- installation: [./nvim/lua/ikarvim/plugins/lsp/mason.lua](./nvim/lua/ikarvim/plugins/lsp/mason.lua)
+
+### nvim-cmp
+
+Autocomplition
+
+- link: [https://github.com/hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- config: [./nvim/lua/ikarvim/plugins/lsp/cmp.lua](./nvim/lua/ikarvim/plugins/lsp/cmp.lua)
+
+Keymaps:
+
+```
+["<C-j>"] = cmp.mapping.select_next_item() -- next item in autocomplite menue
+["<C-k>"] = cmp.mapping.select_prev_item(), -- prev item in autocomplite menue
+["<C-u>"] = cmp.mapping.scroll_docs(-4), -- scroll docs down
+["<C-d>"] = cmp.mapping.scroll_docs(4), -- scroll docs up
+["<C-f>"] = cmp_action.luasnip_jump_forward(),
+["<C-b>"] = cmp_action.luasnip_jump_backward(),
+["<C-Space>"] = cmp.mapping.complete(),
+["<CR>"] = cmp.mapping.confirm({ select = true }),
+```
+
+### LuaSnip
+
+Snippets engine
+
+- link: [https://github.com/L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- config: [./nvim/lua/ikarvim/plugins/luasnip.lua](./nvim/lua/ikarvim/plugins/luasnip.lua) 
+
+### LSP
+
+nvim-lsp, setting and configuring lsp-zero, mason-lspconfig and cmp
+
+config: [./nvim/lua/ikarvim/plugins/lsp/lsp.lua](./nvim/lua/ikarvim/plugins/lsp/lsp.lua)
+
+Notice using additional plugin:
+- [antosha417/nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
+
+Keymaps:
+
+```
+opts.desc = "Go to declaration"
+keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+opts.desc = "Show LSP definitions"
+keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+
+opts.desc = "Show LSP implementations"
+keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+opts.desc = "Show LSP type definitions"
+keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+opts.desc = "Sho LSP references"
+keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+
+opts.desc = "See available code actions"
+keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
+opts.desc = "Smart rename"
+keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+```
+
+### Goto Preview
+
+previewing native LSP's goto definition, type definition, implementation, declaration and references calls in floating windows
+
+- link: [https://github.com/rmagatti/goto-preview](https://github.com/rmagatti/goto-preview)
+- config: [./nvim/lua/ikarvim/plugins/lsp/gotopreview.lua](./nvim/lua/ikarvim/plugins/lsp/gotopreview.lua)
+
+Keymaps:
+
+```
+keymap.set("n", "<leader>gd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {noremap=true})
+keymap.set("n", "<leader>gc", "<cmd>lua require('goto-preview').close_all_win()<CR>", {noremap=true})
+```
+
+### conform.nvim
+
+Formatting engine
+
+- link: [https://github.com/stevearc/conform.nvim](https://github.com/stevearc/conform.nvim)
+- config: [./nvim/lua/ikarvim/plugins/lsp/formatting.lua](./nvim/lua/ikarvim/plugins/lsp/formatting.lua)
+
+### nvim-lint
+
+Linting plugin
+
+- link: [https://github.com/mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
+- config: [./nvim/lua/ikarvim/plugins/lsp/linting.lua](./nvim/lua/ikarvim/plugins/lsp/linting.lua) 
+
+
