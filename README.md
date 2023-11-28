@@ -44,8 +44,8 @@ vim.keymap.set("v", "<leader>cc", ":norm i")
 vim.keymap.set("v", "<leader>cn", ":norm x")
 
 -- Open terminal in vsplit block
-vim.keymap.set("n", "<leader>tev", ":belowright term://bash<CR>")
-vim.keymap.set("n", "<leader>teh", ":belowright split term://bash<CR>")
+vim.keymap.set("n", "<leader>tev", ":belowright 50 vsplit term://bash<CR>")
+vim.keymap.set("n", "<leader>teh", ":belowright 15 split term://bash<CR>")
 
 -- New lines in normal mode
 vim.keymap.set("n", "<leader>o", "o<Esc>")
