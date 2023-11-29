@@ -355,4 +355,11 @@ Linting plugin
 - link: [https://github.com/mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - config: [./nvim/lua/ikarvim/plugins/lsp/linting.lua](./nvim/lua/ikarvim/plugins/lsp/linting.lua) 
 
+## Markdown
+
+**markdown-preview.nvim**
+
+- link: [https://github.com/kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- config: [./nvim/lua/ikarvim/plugins/markdownpreview.lua](./nvim/lua/ikarvim/plugins/markdownpreview.lua)
+
 
