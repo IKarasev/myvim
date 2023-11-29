@@ -53,6 +53,7 @@ return {
 				"yamlls",
 				"pyright",
 				"gopls",
+				"marksman",
 			},
 			handlers = {
 				lsp_zero.default_setup,
