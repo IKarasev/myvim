@@ -10,46 +10,58 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- Move blocks of text with autoindent
+-- {{ Move blocks of text with autoindent }} --
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
--- keep cursor in start of line when inline text
+-- {{ keep cursor in start of line when inline text }} --
 vim.keymap.set("n", "J", "mzJ`z")
 
--- keep copyied text in buffer after repalce
-vim.keymap.set("x", "<leader>p", "\"_dP")
+-- {{ keep copyied text in buffer after repalce }} --
+vim.keymap.set("x", "<leader>p", '"_dP')
 
--- Turn of Q command
+-- {{ Turn of Q command }} --
 vim.keymap.set("n", "Q", "<nop>")
 
--- Replace current word in file
+-- {{ Replace current word in file }} --
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Seach in the middle of screen
+-- {{ Seach in the middle of screen }} --
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Half page up-down
+-- {{ Half page up-down }} --
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Nvim copy also copies to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+-- {{ Nvim copy also copies to system clipboard }} --
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
--- Un\comment block in visual mode
+-- {{ Un\comment block in visual mode (inser\remove give chars at start of line) }} --
 vim.keymap.set("v", "<leader>cc", ":norm i")
 vim.keymap.set("v", "<leader>cn", ":norm x")
 
--- Open terminal in vsplit block
+-- {{ Open terminal in vsplit block }} --
 vim.keymap.set("n", "<leader>tev", ":belowright 50 vsplit term://bash<CR>")
-vim.keymap.set("n", "<leader>teh", ":belowright 15 split term://bash<CR>")
+vim.keymap.set("n", "<leader>tt", ":belowright 15 split term://bash<CR>")
 
--- New lines in normal mode
+-- {{ Add empty lines before and after current line in normal mode }} --
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
+
+-- {{ Win splits manipulations }} --
+-- change to vetical
+vim.keymap.set("n", "<leader>wv", "<C-w>t<C-w>H")
+-- change to horizonstal
+vim.keymap.set("n", "<leader>wh", "<C-w>t<C-w>K")
+-- resize splits
+vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>")
+vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>")
+vim.keymap.set("n", "<C-Up>", ":resize +3<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
+
 ```
 
 ### Telescope
@@ -115,6 +127,7 @@ keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>",
 keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", 
 keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, 
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, 
+keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 ```
 
 ### Go-to preview
@@ -354,6 +367,16 @@ Linting plugin
 
 - link: [https://github.com/mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - config: [./nvim/lua/ikarvim/plugins/lsp/linting.lua](./nvim/lua/ikarvim/plugins/lsp/linting.lua) 
+
+### Neogen
+
+Docstrings, comments, annotations
+
+![alt tex](https://user-images.githubusercontent.com/5306901/141127528-ddff21bb-8da3-43da-8efe-9494a4f231d2.png)
+
+- link: [https://github.com/danymat/neogen](https://github.com/danymat/neogen)
+- config: [./nvim/lua/ikarvim/plugins/neogen.lua](./nvim/lua/ikarvim/plugins/neogen.lua)
+
 
 ## Markdown
 

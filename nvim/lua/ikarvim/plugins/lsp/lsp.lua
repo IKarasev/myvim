@@ -38,6 +38,9 @@ return {
 
 			opts.desc = "Smart rename"
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+
+			opts.desc = "Show signature help in insert mode"
+			keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 		end)
 
 		require("mason-lspconfig").setup({
