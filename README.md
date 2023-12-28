@@ -384,6 +384,26 @@ Smart and Powerful commenting plugin for NeoVim
 - link: [https://github.com/numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - config: [./nvim/lua/ikarvim/plugins/commentvim.lua](./nvim/lua/ikarvim/plugins/commentvim.lua)
 
+#### Keymaps
+
+For more detailes got to plugin github page
+
+```
+** NORMAL MODE **
+
+`gcc` - Toggles the current line using linewise comment
+`gbc` - Toggles the current line using blockwise comment
+`[count]gcc` - Toggles the number of line given as a prefix-count using linewise
+`[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
+`gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
+`gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
+
+** VISUAL mode **
+
+`gc` - Toggles the region using linewise comment
+`gb` - Toggles the region using blockwise comment
+```
+
 ## Markdown
 
 **markdown-preview.nvim**
