@@ -43,6 +43,9 @@ return {
 			keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 		end)
 
+		local lspconfig = require("lspconfig")
+		--local util = require("lspconfig/util")
+
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"bashls",
@@ -62,7 +65,20 @@ return {
 				lsp_zero.default_setup,
 				lua_ls = function()
 					local lua_opts = lsp_zero.nvim_lua_ls()
-					require("lspconfig").lua_ls.setup(lua_opts)
+					lspconfig.lua_ls.setup(lua_opts)
+				end,
+				gopls = function()
+					lspconfig.gopls.setup({
+						settings = {
+							gopls = {
+								completeUnimported = true,
+								usePlaceholders = true,
+								analyses = {
+									unusedparams = true,
+								},
+							},
+						},
+					})
 				end,
 			},
 		})

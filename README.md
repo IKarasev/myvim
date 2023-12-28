@@ -377,6 +377,12 @@ Docstrings, comments, annotations
 - link: [https://github.com/danymat/neogen](https://github.com/danymat/neogen)
 - config: [./nvim/lua/ikarvim/plugins/neogen.lua](./nvim/lua/ikarvim/plugins/neogen.lua)
 
+### Commenting: Comment.nvim
+
+Smart and Powerful commenting plugin for NeoVim
+
+- link: [https://github.com/numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- config: [./nvim/lua/ikarvim/plugins/commentvim.lua](./nvim/lua/ikarvim/plugins/commentvim.lua)
 
 ## Markdown
 
