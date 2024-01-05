@@ -62,6 +62,9 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>")
 vim.keymap.set("n", "<C-Up>", ":resize +3<CR>")
 vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
 
+-- {{ Budder manipulations }} --
+-- Previous buffer
+vim.keymap.set("n", "<leader>bn", ":b#<CR>")
 ```
 
 ### Telescope
@@ -71,6 +74,7 @@ vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
 ```
 mappings = {
     ["<C-s>"] = actions.select_vertical
+    ["<C-b>"] = require("telescope.actions").delete_buffer
 }
 ```
 
@@ -376,6 +380,16 @@ Docstrings, comments, annotations
 
 - link: [https://github.com/danymat/neogen](https://github.com/danymat/neogen)
 - config: [./nvim/lua/ikarvim/plugins/neogen.lua](./nvim/lua/ikarvim/plugins/neogen.lua)
+
+#### Keymaps
+
+```
+Normal mode:
+
+"<leader>nc" : "<cmd>:Neogen class<CR>" // gen class doc
+"<leader>nf" : "<cmd>:Neogen func<CR>"  // gen function doc
+"<leader>nt" : "<cmd>:Neogen type<CR>"  // gen type doc
+```
 
 ### Commenting: Comment.nvim
 

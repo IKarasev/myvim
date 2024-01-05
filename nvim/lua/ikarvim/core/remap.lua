@@ -52,3 +52,7 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>")
 vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>")
 vim.keymap.set("n", "<C-Up>", ":resize +3<CR>")
 vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
+
+-- {{ Budder manipulations }} --
+-- Previous buffer
+vim.keymap.set("n", "<leader>bn", ":b#<CR>")
