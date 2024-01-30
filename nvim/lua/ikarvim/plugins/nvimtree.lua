@@ -27,6 +27,9 @@ return {
 		end
 
 		nvimtree.setup({
+			view = {
+				preserve_window_proportions = true,
+			},
 			actions = {
 				open_file = {
 					window_picker = {

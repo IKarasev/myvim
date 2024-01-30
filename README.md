@@ -65,6 +65,10 @@ vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
 -- {{ Budder manipulations }} --
 -- Previous buffer
 vim.keymap.set("n", "<leader>bn", ":b#<CR>")
+
+-- {{ Treminal mode maps }} --
+-- to terminal normal mode
+vim.keymap.set("t", "<esc>", "<C-\\><C-N>")
 ```
 
 ### Telescope
