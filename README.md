@@ -1,3 +1,21 @@
+# Vim Cheat Sheet
+
+## Text editing
+
+| Mode | Keys    | Description    |
+| ----- | :-------------: | --------------- |
+| N | `Ctrl+A`   |  Increment number by 1  |
+| N | `Ctrl+X`     | Decrement number by 1   |
+| V | `~` | Switch letter case |
+
+## Selection
+
+| Mode | Keys    | Description    |
+| ----- | :-------------: | --------------- |
+| N | `vit`   |  Select all in current tag (html)  |
+| N | `vat`   |  Select all in current tag (html) with tag  |
+
+
 # My NeoVim Configuration
 
 ## Remaps
