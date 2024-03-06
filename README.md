@@ -305,6 +305,16 @@ mason-lspconfig - install and setup helper for nvim-lsp
     - [https://github.com/williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - installation: [./nvim/lua/ikarvim/plugins/lsp/mason.lua](./nvim/lua/ikarvim/plugins/lsp/mason.lua)
 
+#### gopls no go dound fix
+
+error: LSP server unable to find go mod
+
+Fix:
+
+in `nvim-data\lazy\nvim-lspconfig\lua\lspconfig\server_configurations\gopls.lua`
+
+change `local mod_cache = nil` to `local mod_cache = '/c/Users/IAKarasev/go/pkg/mod'`
+
 ### nvim-cmp
 
 Autocomplition
