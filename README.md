@@ -1,3 +1,18 @@
+# Installetion
+
+## Prerequisits:
+
+- ptython3
+- pip
+- go
+- npm
+
+## Install howto
+
+- v0.9.5 [https://github.com/neovim/neovim/releases/tag/v0.9.5](https://github.com/neovim/neovim/releases/tag/v0.9.5)
+- from source (apt based linux for eg): [https://github.com/neovim/neovim?tab=readme-ov-file#install-from-source](https://github.com/neovim/neovim?tab=readme-ov-file#install-from-source)
+
+
 # Vim Cheat Sheet
 
 ## Text editing
