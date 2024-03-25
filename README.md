@@ -326,7 +326,7 @@ error: LSP server unable to find go mod
 
 Fix:
 
-in `nvim-data\lazy\nvim-lspconfig\lua\lspconfig\server_configurations\gopls.lua`
+in `nvim-data/lazy/nvim-lspconfig/lua/lspconfig/server_configurations/gopls.lua`
 
 change `local mod_cache = nil` to `local mod_cache = '/c/Users/IAKarasev/go/pkg/mod'`
 
