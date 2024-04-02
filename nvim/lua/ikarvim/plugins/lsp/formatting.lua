@@ -8,7 +8,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				go = { "gofmt" },
+				go = { "gofmt", "goimports" },
 				javascript = { "prettier" },
 			},
 			format_on_save = {

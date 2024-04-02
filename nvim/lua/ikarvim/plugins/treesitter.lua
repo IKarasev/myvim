@@ -12,6 +12,9 @@ return {
 				"vimdoc",
 				"query",
 				"go",
+				"gomod",
+				"gowork",
+				"gosum",
 				"bash",
 				"python",
 				"html",
@@ -25,6 +28,8 @@ return {
 				"gitignore",
 				"markdown",
 				"markdown_inline",
+				"java",
+				"regex",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

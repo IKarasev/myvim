@@ -73,8 +73,10 @@ return {
 							gopls = {
 								completeUnimported = true,
 								usePlaceholders = true,
+								directoryFilters = { "-.git" },
 								analyses = {
 									unusedparams = true,
+									shadow = true,
 								},
 							},
 						},

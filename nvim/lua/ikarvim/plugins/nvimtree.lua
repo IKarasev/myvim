@@ -43,9 +43,9 @@ return {
 			on_attach = my_on_attach,
 		})
 
-		vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
-		vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
-		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
-		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+		vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
+		vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "nvim-tree: toggle find file" })
+		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "nvim-tree: collapse tree" })
+		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "nvim-tee: refresh tree" })
 	end,
 }

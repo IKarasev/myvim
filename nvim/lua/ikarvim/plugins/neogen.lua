@@ -23,8 +23,8 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>nc", "<cmd>:Neogen class<CR>")
-		vim.keymap.set("n", "<leader>nf", "<cmd>:Neogen func<CR>")
-		vim.keymap.set("n", "<leader>nt", "<cmd>:Neogen type<CR>")
+		vim.keymap.set("n", "<leader>nc", "<cmd>:Neogen class<CR>", { desc = "Neogen: gen class cmnt" })
+		vim.keymap.set("n", "<leader>nf", "<cmd>:Neogen func<CR>", { desc = "Neogen: gen func cmnt" })
+		vim.keymap.set("n", "<leader>nt", "<cmd>:Neogen type<CR>", { desc = "Neogen: gen type cmnt" })
 	end,
 }

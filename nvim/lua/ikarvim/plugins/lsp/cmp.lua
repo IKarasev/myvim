@@ -7,6 +7,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
+		"onsails/lspkind.nvim",
 	},
 	config = function()
 		-- Here is where you configure the autocompletion settings.
@@ -16,9 +17,16 @@ return {
 		-- And you can configure cmp even more, if you want to.
 		local cmp = require("cmp")
 		local cmp_action = lsp_zero.cmp_action()
+		local lspkind = require("lspkind")
 
 		cmp.setup({
-			formatting = lsp_zero.cmp_format(),
+			-- formatting = lsp_zero.cmp_format(),
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					show_labelDetails = true,
+				}),
+			},
 			sources = {
 				{
 					name = "nvim_lsp",

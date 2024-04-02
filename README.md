@@ -210,6 +210,20 @@ vim.keymap.set("n", "<leader>gsp", "<cmd>:Git! push<CR>")
 - link: [https://github.com/nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) 
 - config: [./nvim/lua/ikarvim/plugins/treesitter.lua](./nvim/lua/ikarvim/plugins/treesitter.lua)
 
+#### lualine.nvim
+
+Status line
+
+- link: [https://github.com/nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- config: [./nvim/lua/ikarvim/plugins/lualine.lua](./nvim/lua/ikarvim/plugins/lualine.lua)
+
+#### 💥 Noice
+
+UI beautifying
+
+- link: [https://github.com/folke/noice.nvim](https://github.com/folke/noice.nvim)
+- config: [./nvim/lua/ikarvim/plugins/noice.lua](./nvim/lua/ikarvim/plugins/noice.lua)
+
 #### webdevicons.lua
 
 Fancy icons
@@ -217,13 +231,6 @@ Fancy icons
 - link: [https://github.com/nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - custom font: [HackNerdFont](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
 - config: [./nvim/lua/ikarvim/plugins/webdevicons.lua](./nvim/lua/ikarvim/plugins/webdevicons.lua)
-
-#### lualine.nvim
-
-Status line
-
-- link: [https://github.com/nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- config: [./nvim/lua/ikarvim/plugins/lualine.lua](./nvim/lua/ikarvim/plugins/lualine.lua)
 
 ## Editor
 
@@ -276,6 +283,23 @@ Visual replacement for input-select vim.ui actions
 
 - link: [https://github.com/stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - config: [./nvim/lua/ikarvim/plugins/dressing.lua](./nvim/lua/ikarvim/plugins/dressing.lua)
+
+### Harpoon
+
+Blazingly fast navigation between file buffers! Thanx @ThePrimeagen
+
+- link: [https://github.com/ThePrimeagen/harpoon/tree/harpoon2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
+- config: [./nvim/lua/ikarvim/plugins/harpoon.lua](./nvim/lua/ikarvim/plugins/harpoon.lua)
+
+#### Keymaps
+
+| Keymap   | Descr    |
+|--------------- | --------------- |
+| `<leader>he`   | Open harpoon window   |
+| `<leader>ha`   | Harpoon: append   |
+| `1 2 3 4`   | Selecet harpoon item   |
+| `<C-z>`   | Previous item   |
+| `<C-x>`   | Next item   |
 
 ## Git
 
@@ -356,6 +380,13 @@ Snippets engine
 
 - link: [https://github.com/L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - config: [./nvim/lua/ikarvim/plugins/luasnip.lua](./nvim/lua/ikarvim/plugins/luasnip.lua) 
+
+#### Keymaps
+
+| Keymaps   | Action    |
+|--------------- | --------------- |
+| `<C-L>`   | Jump next item   |
+| `<C-J>`   | Jump prev item   |
 
 ### LSP
 
