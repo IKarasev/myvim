@@ -44,13 +44,13 @@ vim.keymap.set(
 	"n",
 	"<leader>tev",
 	":belowright 50 vsplit term://bash<CR>",
-	{ desc = "Open terminal iv vertical split" }
+	{ desc = "Open terminal iv vertical split", silent = true }
 )
 vim.keymap.set(
 	"n",
 	"<leader>tt",
 	":belowright 15 split term://bash<CR>",
-	{ desc = "Open terimnal in horizontal split" }
+	{ desc = "Open terimnal in horizontal split", silent = true }
 )
 
 -- {{ Add empty lines before and after current line in normal mode }} --

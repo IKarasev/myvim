@@ -10,20 +10,53 @@ return {
 		harpoon:setup()
 
 		local conf = require("telescope.config").values
+
+		local make_finder = function()
+			local file_paths = {}
+			local harpoon_list = harpoon:list()
+			for i, item in ipairs(harpoon_list.items) do
+				table.insert(file_paths, { tostring(i), item.value })
+			end
+			return require("telescope.finders").new_table({
+				results = file_paths,
+				entry_maker = function(entry)
+					return {
+						value = entry[2],
+						display = string.format("[%s] %s", entry[1], entry[2]),
+						ordinal = entry[2],
+					}
+				end,
+			})
+		end
+
 		local function toggle_telescope(harpoon_files)
 			local file_paths = {}
-			for _, item in ipairs(harpoon_files.items) do
-				table.insert(file_paths, item.value)
+			for i, item in ipairs(harpoon_files.items) do
+				table.insert(file_paths, { tostring(i), item.value })
 			end
 
 			require("telescope.pickers")
 				.new({}, {
 					prompt_title = "Harpoon",
-					finder = require("telescope.finders").new_table({
-						results = file_paths,
-					}),
+					finder = make_finder(),
 					previewer = conf.file_previewer({}),
 					sorter = conf.generic_sorter({}),
+					attach_mappings = function(prompt_buffer_number, map)
+						map(
+							"i",
+							"<C-R>", -- your mapping here
+							function()
+								local state = require("telescope.actions.state")
+								local selected_entry = state.get_selected_entry()
+								local current_picker = state.get_current_picker(prompt_buffer_number)
+
+								harpoon:list():removeAt(selected_entry.index)
+								current_picker:refresh(make_finder())
+							end
+						)
+
+						return true
+					end,
 				})
 				:find()
 		end
@@ -32,9 +65,14 @@ return {
 		vim.keymap.set("n", "<leader>he", function()
 			toggle_telescope(harpoon:list())
 		end, { desc = "Open harpoon window" })
+
 		vim.keymap.set("n", "<leader>ha", function()
+			local f = vim.api.nvim_buf_get_name(0)
+			print("Harpoon append: " .. f)
 			harpoon:list():append()
 		end, { desc = "Harpoon: append" })
+
+		-- Navigate to item list
 		vim.keymap.set("n", "1", function()
 			harpoon:list():select(1)
 		end, { desc = "Harpoon: select 1" })
