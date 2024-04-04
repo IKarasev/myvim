@@ -58,7 +58,7 @@ vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 -- {{ Open explorer in project dir }} --
-vim.keymap.set("n", "<leader>exp", ':!"explorer ."<CR>', { desc = "Open root dir in explorer" })
+vim.keymap.set("n", "<leader>exp", ':!"explorer ."<CR>', { desc = "Open root dir in explorer", silent = true })
 
 -- {{ Win splits manipulations }} --
 -- change to vetical
