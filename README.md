@@ -1,4 +1,4 @@
-# Installetion
+# Installation
 
 ## Prerequisits:
 
