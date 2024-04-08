@@ -9,8 +9,50 @@
 
 ## Install howto
 
+### Install NeoVim
+
 - v0.9.5 [https://github.com/neovim/neovim/releases/tag/v0.9.5](https://github.com/neovim/neovim/releases/tag/v0.9.5)
 - from source (apt based linux for eg): [https://github.com/neovim/neovim?tab=readme-ov-file#install-from-source](https://github.com/neovim/neovim?tab=readme-ov-file#install-from-source)
+
+### Configuration
+
+1. Clone repo
+
+```
+git clone https://github.com/IKarasev/myvim.git
+```
+
+2. Copy content of `./mynvim/nvim` to your neovim configuration directory
+
+- For windows to `%userprofile%\AppData\Local\nvim\`
+- For linux (e.g. debian) to `~/.config/nvim/` 
+
+3. Adapt set config for you enviroment<br>In file `../nvim/lua/ikarvim/core/set.lua` 
+- Set undo directory location
+```
+vim.opt.undodir = os.getenv("LOCALAPPDATA") .. "\\nvim-data\\undodir"
+```
+
+- GitBash settings: change for your setup or remove
+
+```
+39 vim.opt.shell = ''
+40 vim.opt.shellcmdflag = '-c'
+41 vim.g.terminal_emulator = ''
+```
+
+- Nvim providers: change for your setup or remove
+
+```
+vim.g.python3_host_prog = ""
+vim.g.node_host_prog = ""
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+```
+
+4. Install NerdFont<br>my choice is Hack NerdFont:[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
+
+5. Start Neovim:<br>In terminal: `nvim`<br>Plugins should start installing automatically, if not type `:Lazy` or press `Space l z` then proceed to installing by pressing `Shift+I` 
 
 
 # Vim Cheat Sheet
