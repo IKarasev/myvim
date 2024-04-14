@@ -27,7 +27,7 @@ git clone https://github.com/IKarasev/myvim.git
 - For windows to `%userprofile%\AppData\Local\nvim\`
 - For linux (e.g. debian) to `~/.config/nvim/` 
 
-3. Adapt set config for you enviroment<br>In file `../nvim/lua/ikarvim/core/set.lua` 
+3. Adapt set config for your enviroment<br>In file `../nvim/lua/ikarvim/core/set.lua` 
 - Set undo directory location
 ```
 vim.opt.undodir = os.getenv("LOCALAPPDATA") .. "\\nvim-data\\undodir"
@@ -386,7 +386,7 @@ mason-lspconfig - install and setup helper for nvim-lsp
     - [https://github.com/williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - installation: [./nvim/lua/ikarvim/plugins/lsp/mason.lua](./nvim/lua/ikarvim/plugins/lsp/mason.lua)
 
-#### gopls no go dound fix
+#### gopls no go found fix
 
 error: LSP server unable to find go mod
 

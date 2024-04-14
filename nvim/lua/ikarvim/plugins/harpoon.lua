@@ -11,9 +11,9 @@ return {
 
 		local conf = require("telescope.config").values
 
-		local make_finder = function()
+		local make_finder = function(harpoon_list)
 			local file_paths = {}
-			local harpoon_list = harpoon:list()
+			-- local harpoon_list = harpoon:list()
 			for i, item in ipairs(harpoon_list.items) do
 				table.insert(file_paths, { tostring(i), item.value })
 			end
@@ -29,16 +29,11 @@ return {
 			})
 		end
 
-		local function toggle_telescope(harpoon_files)
-			local file_paths = {}
-			for i, item in ipairs(harpoon_files.items) do
-				table.insert(file_paths, { tostring(i), item.value })
-			end
-
+		local function toggle_telescope()
 			require("telescope.pickers")
 				.new({}, {
 					prompt_title = "Harpoon",
-					finder = make_finder(),
+					finder = make_finder(harpoon:list()),
 					previewer = conf.file_previewer({}),
 					sorter = conf.generic_sorter({}),
 					attach_mappings = function(prompt_buffer_number, map)
@@ -49,9 +44,8 @@ return {
 								local state = require("telescope.actions.state")
 								local selected_entry = state.get_selected_entry()
 								local current_picker = state.get_current_picker(prompt_buffer_number)
-
-								harpoon:list():removeAt(selected_entry.index)
-								current_picker:refresh(make_finder())
+								local upd_list = harpoon:list():remove_at(selected_entry.index)
+								current_picker:refresh(make_finder(upd_list))
 							end
 						)
 
@@ -63,13 +57,13 @@ return {
 
 		-- Keymapping
 		vim.keymap.set("n", "<leader>he", function()
-			toggle_telescope(harpoon:list())
+			toggle_telescope()
 		end, { desc = "Open harpoon window" })
 
 		vim.keymap.set("n", "<leader>ha", function()
 			local f = vim.api.nvim_buf_get_name(0)
-			print("Harpoon append: " .. f)
-			harpoon:list():append()
+			print("Harpoon add: " .. f)
+			harpoon:list():add()
 		end, { desc = "Harpoon: append" })
 
 		-- Navigate to item list
