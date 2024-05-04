@@ -37,7 +37,7 @@ vim.g.mapleader = " "
 
 -- Bash shell set
 vim.opt.shell = '"D:\\Program Files\\Git\\usr\\bin\\bash.exe"'
-vim.opt.shellcmdflag = '-c'
+vim.opt.shellcmdflag = "-c"
 vim.g.terminal_emulator = '"D:\\Program Files\\Git\\usr\\bin\\bash.exe"'
 
 -- Nvim providers

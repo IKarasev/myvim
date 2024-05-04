@@ -1,3 +1,10 @@
+# About
+
+My neovim configuration made to be comfortable and awesome for me. If you are me, then you know you are in the matrix.
+
+- [nvim/](./nvim/) - neovim configuration
+- [vim_vimrc](./vim_vimrc) - config for simple vim
+
 # Installation
 
 ## Prerequisits:
@@ -341,7 +348,7 @@ Blazingly fast navigation between file buffers! Thanx @ThePrimeagen
 | `<leader>ha`   | Harpoon: append   |
 | `1 2 3 4`   | Selecet harpoon item   |
 | `<C-z>`   | Previous item   |
-| `<C-x>`   | Next item   |
+| `<C-c>`   | Next item   |
 
 ## Git
 

@@ -3,52 +3,81 @@ return {
 	branch = "harpoon2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		-- "nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
+		local action_state = require("telescope.actions.state")
+		local finders = require("telescope.finders")
+		local pickers = require("telescope.pickers")
+		local entry_display = require("telescope.pickers.entry_display")
+		local conf = require("telescope.config").values
 		local harpoon = require("harpoon")
+
 		harpoon:setup()
 
-		local conf = require("telescope.config").values
-
-		local make_finder = function(harpoon_list)
-			local file_paths = {}
-			-- local harpoon_list = harpoon:list()
-			for i, item in ipairs(harpoon_list.items) do
-				table.insert(file_paths, { tostring(i), item.value })
+		local function filter_empty_string(list)
+			local next = {}
+			for idx = 1, #list do
+				if not (list[idx] == nil) then
+					if list[idx].value ~= "" then
+						table.insert(next, { idx = idx, item = list[idx] })
+					end
+				end
 			end
-			return require("telescope.finders").new_table({
-				results = file_paths,
+
+			return next
+		end
+
+		local make_finder = function()
+			local res = filter_empty_string(harpoon:list().items)
+			return finders.new_table({
+				results = res,
 				entry_maker = function(entry)
+					local line = entry.item.value
+					local displayer = entry_display.create({
+						separator = "",
+						items = {
+							{ width = 4 },
+							{ width = 50 },
+							{ remaining = true },
+						},
+					})
+					local make_display = function()
+						return displayer({
+							"[" .. tostring(entry.idx) .. "]",
+							line,
+						})
+					end
 					return {
-						value = entry[2],
-						display = string.format("[%s] %s", entry[1], entry[2]),
-						ordinal = entry[2],
+						value = entry.item,
+						ordinal = line,
+						display = make_display,
+						lnum = entry.item.row,
+						col = entry.item.col,
+						filename = entry.item.value,
 					}
 				end,
 			})
 		end
 
+		local delete_mark = function(prompt_buffer_number)
+			local selected = action_state.get_selected_entry()
+			harpoon:list():remove(selected.value)
+			-- remove_empty()
+			local current_picker = action_state.get_current_picker(prompt_buffer_number)
+			current_picker:refresh(make_finder(), { reset_prompt = true })
+		end
+
 		local function toggle_telescope()
-			require("telescope.pickers")
+			pickers
 				.new({}, {
 					prompt_title = "Harpoon",
-					finder = make_finder(harpoon:list()),
+					finder = make_finder(),
 					previewer = conf.file_previewer({}),
 					sorter = conf.generic_sorter({}),
-					attach_mappings = function(prompt_buffer_number, map)
-						map(
-							"i",
-							"<C-R>", -- your mapping here
-							function()
-								local state = require("telescope.actions.state")
-								local selected_entry = state.get_selected_entry()
-								local current_picker = state.get_current_picker(prompt_buffer_number)
-								local upd_list = harpoon:list():remove_at(selected_entry.index)
-								current_picker:refresh(make_finder(upd_list))
-							end
-						)
-
+					attach_mappings = function(_, map)
+						map("i", "<C-R>", delete_mark)
+						map("n", "<C-R>", delete_mark)
 						return true
 					end,
 				})
@@ -82,10 +111,10 @@ return {
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		vim.keymap.set("n", "<C-z>", function()
-			harpoon:list():prev()
+			harpoon:list():prev({ ui_nav_wrap = true })
 		end, { desc = "Harpoon: select previous" })
-		vim.keymap.set("n", "<C-x>", function()
-			harpoon:list():next()
+		vim.keymap.set("n", "<C-c>", function()
+			harpoon:list():next({ ui_nav_wrap = true })
 		end, { desc = "Harpoon: select next" })
 	end,
 }
